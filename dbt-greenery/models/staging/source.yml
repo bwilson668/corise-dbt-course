@@ -19,8 +19,9 @@ sources:
       - name: events
         loaded_at_field: created_at
       - name: orders
+        loaded_at_field: created_at
       - name: order_items
       - name: products
       - name: promos
       - name: users
-        loaded_at_field: updated_at
+        loaded_at_field: created_at

@@ -1,0 +1,237 @@
+version: 2
+
+models:
+  - name: stg_addresses
+    description: ""
+    columns:
+      - name: id
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: address_id
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: address
+        description: ""
+
+      - name: zipcode
+        description: ""
+
+      - name: state
+        description: ""
+
+      - name: country
+        description: ""
+
+  - name: stg_events
+    description: ""
+    columns:
+      - name: id
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: event_id
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: session_id
+        description: ""
+
+      - name: user_id
+        description: ""
+        tests:
+          - relationships:
+              to: ref('stg_users')
+              field: user_id
+
+      - name: page_url
+        description: ""
+
+      - name: created_at
+        description: ""
+
+      - name: event_type
+        description: ""
+
+  - name: stg_order_items
+    description: ""
+    columns:
+      - name: id
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: order_id
+        description: ""
+        tests:
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+
+      - name: product_id
+        description: ""
+        tests:
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
+
+      - name: quantity
+        description: ""
+
+  - name: stg_orders
+    description: ""
+    columns:
+      - name: id
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: order_id
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: user_id
+        description: ""
+        tests:
+          - relationships:
+              to: ref('stg_users')
+              field: user_id
+
+      - name: promo_id
+        description: ""
+        tests:
+          - relationships:
+              to: ref('stg_promos')
+              field: promo_id
+
+      - name: address_id
+        description: ""
+        tests:
+          - relationships:
+              to: ref('stg_addresses')
+              field: address_id
+
+      - name: created_at
+        description: ""
+
+      - name: order_cost
+        description: ""
+
+      - name: shipping_cost
+        description: ""
+
+      - name: order_total
+        description: ""
+
+      - name: tracking_id
+        description: ""
+
+      - name: shipping_service
+        description: ""
+
+      - name: estimated_delivery_at
+        description: ""
+
+      - name: delivered_at
+        description: ""
+
+      - name: status
+        description: ""
+
+  - name: stg_products
+    description: ""
+    columns:
+      - name: id
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: product_id
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: name
+        description: ""
+
+      - name: price
+        description: ""
+
+      - name: quantity
+        description: ""
+
+  - name: stg_promos
+    description: ""
+    columns:
+      - name: id
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: promo_id
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: discout
+        description: ""
+
+      - name: status
+        description: ""
+
+  - name: stg_users
+    description: ""
+    columns:
+      - name: id
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: user_id
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+      - name: first_name
+        description: ""
+
+      - name: last_name
+        description: ""
+
+      - name: email
+        description: ""
+
+      - name: phone_number
+        description: ""
+
+      - name: created_at
+        description: ""
+
+      - name: updated_at
+        description: ""
+
+      - name: address_id
+        description: ""
+        tests:
+          - relationships:
+              to: ref('stg_addresses')
+              field: address_id
