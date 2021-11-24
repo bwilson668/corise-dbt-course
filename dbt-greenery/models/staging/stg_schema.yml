@@ -2,31 +2,79 @@ version: 2
 
 models:
   - name: stg_addresses
-    description: ""
+    description: "Address Data"
     columns:
       - name: id
-        description: ""
+        description: "Primary Identifier"
         tests:
           - unique
           - not_null
 
       - name: address_id
-        description: ""
+        description: "GUID Identifier"
         tests:
           - unique
           - not_null
 
       - name: address
-        description: ""
+        description: "Street address"
 
       - name: zipcode
-        description: ""
+        description: "Zip Code"
 
       - name: state
-        description: ""
+        description: "State"
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                [
+                  "Alabama",
+                  "Arizona",
+                  "California",
+                  "Colorado",
+                  "Connecticut",
+                  "Delaware",
+                  "District of Columbia",
+                  "Florida",
+                  "Georgia",
+                  "Illinois",
+                  "Indiana",
+                  "Iowa",
+                  "Kansas",
+                  "Kentucky",
+                  "Louisiana",
+                  "Maryland",
+                  "Massachusetts",
+                  "Michigan",
+                  "Minnesota",
+                  "Mississippi",
+                  "Missouri",
+                  "Montana",
+                  "Nebraska",
+                  "Nevada",
+                  "New Hampshire",
+                  "New Mexico",
+                  "New York",
+                  "North Carolina",
+                  "Ohio",
+                  "Oklahoma",
+                  "Oregon",
+                  "Pennsylvania",
+                  "South Carolina",
+                  "Texas",
+                  "Virginia",
+                  "Washington",
+                  "West Virginia",
+                  "Wisconsin",
+                ]
 
       - name: country
-        description: ""
+        description: "Country"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["United States"]
 
   - name: stg_events
     description: ""
@@ -148,7 +196,7 @@ models:
       - name: delivered_at
         description: ""
 
-      - name: status
+      - name: order_status
         description: ""
 
   - name: stg_products
@@ -166,7 +214,7 @@ models:
           - unique
           - not_null
 
-      - name: name
+      - name: product_name
         description: ""
 
       - name: price
@@ -190,10 +238,10 @@ models:
           - unique
           - not_null
 
-      - name: discout
+      - name: discount
         description: ""
 
-      - name: status
+      - name: promo_status
         description: ""
 
   - name: stg_users

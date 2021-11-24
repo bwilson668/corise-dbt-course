@@ -1,13 +1,14 @@
-
-with source as (
-
-    select * from {{ source('greenery', 'users') }}
-
+WITH source AS (
+    SELECT
+        *
+    FROM
+        {{ source(
+            'greenery',
+            'users'
+        ) }}
 ),
-
-renamed as (
-
-    select
+renamed AS (
+    SELECT
         id,
         user_id,
         first_name,
@@ -17,9 +18,10 @@ renamed as (
         created_at,
         updated_at,
         address_id
-
-    from source
-
+    FROM
+        source
 )
-
-select * from renamed
+SELECT
+    *
+FROM
+    renamed

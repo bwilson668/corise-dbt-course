@@ -1,17 +1,14 @@
 {% snapshot stg_orders_snap %}
+    {{ config(
+        target_schema = 'snapshots',
+        unique_key = 'order_id',
+        strategy = 'check',
+        check_cols = ['order_status'],
+        invalidate_hard_deletes = True,
+    ) }}
 
-{{
-    config(
-        target_schema='snapshots',
-        unique_key='order_id',
-
-        strategy='check',
-        check_cols=['status'],
-        invalidate_hard_deletes=True,
-    )
-}}
-
-SELECT * 
-FROM {{ ref('stg_orders') }}
-
+    SELECT
+        *
+    FROM
+        {{ ref('stg_orders') }}
 {% endsnapshot %}

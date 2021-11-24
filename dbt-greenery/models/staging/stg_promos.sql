@@ -1,20 +1,22 @@
-
-with source as (
-
-    select * from {{ source('greenery', 'promos') }}
-
+WITH source AS (
+    SELECT
+        *
+    FROM
+        {{ source(
+            'greenery',
+            'promos'
+        ) }}
 ),
-
-renamed as (
-
-    select
+renamed AS (
+    SELECT
         id,
         promo_id,
-        discout,
-        status
-
-    from source
-
+        discout AS discount,
+        status AS promot_status
+    FROM
+        source
 )
-
-select * from renamed
+SELECT
+    *
+FROM
+    renamed

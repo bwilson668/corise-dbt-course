@@ -18,6 +18,10 @@ data-paths: ["data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
+vars:
+  the_distant_future: "2199-12-31 00:00:00"
+  the_default_fill: "🙈 nothing to see here"
+
 target-path: "target" # directory which will store compiled SQL files
 clean-targets: # directories to be removed by `dbt clean`
   - "target"

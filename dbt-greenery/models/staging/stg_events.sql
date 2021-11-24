@@ -1,13 +1,14 @@
-
-with source as (
-
-    select * from {{ source('greenery', 'events') }}
-
+WITH source AS (
+    SELECT
+        *
+    FROM
+        {{ source(
+            'greenery',
+            'events'
+        ) }}
 ),
-
-renamed as (
-
-    select
+renamed AS (
+    SELECT
         id,
         event_id,
         session_id,
@@ -15,9 +16,10 @@ renamed as (
         page_url,
         created_at,
         event_type
-
-    from source
-
+    FROM
+        source
 )
-
-select * from renamed
+SELECT
+    *
+FROM
+    renamed

@@ -1,20 +1,22 @@
-
-with source as (
-
-    select * from {{ source('greenery', 'order_items') }}
-
+WITH source AS (
+    SELECT
+        *
+    FROM
+        {{ source(
+            'greenery',
+            'order_items'
+        ) }}
 ),
-
-renamed as (
-
-    select
+renamed AS (
+    SELECT
         id,
         order_id,
         product_id,
         quantity
-
-    from source
-
+    FROM
+        source
 )
-
-select * from renamed
+SELECT
+    *
+FROM
+    renamed

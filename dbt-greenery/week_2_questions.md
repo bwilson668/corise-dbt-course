@@ -47,6 +47,10 @@ Recency and Frequency could be calculated for
 
 **What assumptions are you making about each model? (i.e. why are you adding each test?)**
 
+At a minumum each table job should have a uniqueness and not_null test on the grain of the table. This helps warn you if a new join accidentally fans out the data.
+
+There are also categorical fields that we want to lock in. If a new category is introduced there is likely new business logic we need to take into consideration.
+
 **Did you find any “bad” data as you added and ran tests on your models? How did you go about either cleaning the data in the dbt model or adjusting your assumptions/tests?**  
 
 **Your stakeholders at Greenery want to understand the state of the data each day. Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.**

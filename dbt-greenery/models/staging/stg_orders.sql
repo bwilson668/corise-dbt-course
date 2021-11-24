@@ -1,13 +1,14 @@
-
-with source as (
-
-    select * from {{ source('greenery', 'orders') }}
-
+WITH source AS (
+    SELECT
+        *
+    FROM
+        {{ source(
+            'greenery',
+            'orders'
+        ) }}
 ),
-
-renamed as (
-
-    select
+renamed AS (
+    SELECT
         id,
         order_id,
         user_id,
@@ -21,10 +22,11 @@ renamed as (
         shipping_service,
         estimated_delivery_at,
         delivered_at,
-        status
-
-    from source
-
+        status AS order_status
+    FROM
+        source
 )
-
-select * from renamed
+SELECT
+    *
+FROM
+    renamed

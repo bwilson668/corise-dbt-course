@@ -1,22 +1,24 @@
-
-with source as (
-
-    select * from {{ source('greenery', 'addresses') }}
-
+WITH source AS (
+    SELECT
+        *
+    FROM
+        {{ source(
+            'greenery',
+            'addresses'
+        ) }}
 ),
-
-renamed as (
-
-    select
+renamed AS (
+    SELECT
         id,
         address_id,
         address,
         zipcode,
         state,
         country
-
-    from source
-
+    FROM
+        source
 )
-
-select * from renamed
+SELECT
+    *
+FROM
+    renamed
