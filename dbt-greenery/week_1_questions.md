@@ -2,7 +2,7 @@
 
 130
 
-sql at `analysis/project_answers/1_1_user_couont.sql`
+sql at `analysis/project_answers/1_1_user_count.sql`
 
 **On average, how many orders do we receive per hour?**
 
