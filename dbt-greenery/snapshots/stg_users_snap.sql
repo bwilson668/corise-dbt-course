@@ -1,4 +1,4 @@
-{% snapshot stg_users_snapshot %}
+{% snapshot stg_users_snap %}
     {{ config(
         target_schema = 'snapshots',
         unique_key = 'user_id',

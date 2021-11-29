@@ -1,4 +1,4 @@
-{% snapshot stg_promos_snapshot %}
+{% snapshot stg_promos_snap %}
     {{ config(
         target_schema = 'snapshots',
         unique_key = 'promo_id',

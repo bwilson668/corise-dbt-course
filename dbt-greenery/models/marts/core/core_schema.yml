@@ -1,0 +1,74 @@
+version: 2
+
+models:
+  - name: dim_users
+    description: "The users data has been flattened out to include their address. In this model users are only able to have one address."
+    columns:
+      - name: user_id
+        description: "User ID is the grain of the dim users. The uniqueness and not_null tests will provide alerts if the data begins to fan out (i.e. Users are now capable of having multiple addresses)"
+        tests:
+          - unique
+          - not_null
+
+      - name: first_name
+        description: ""
+
+      - name: last_name
+        description: ""
+
+      - name: email
+        description: ""
+
+      - name: phone_number
+        description: ""
+
+      - name: created_at
+        description: ""
+
+      - name: address
+        description: ""
+
+      - name: zipcode
+        description: ""
+
+      - name: state
+        description: ""
+
+      - name: country
+        description: ""
+
+  - name: fact_orders
+    description: "Promo data has been flattened into the Orders data"
+    columns:
+      - name: order_id
+        description: ""
+
+      - name: ordered_at
+        description: ""
+
+      - name: shipping_cost
+        description: ""
+
+      - name: order_total
+        description: ""
+
+      - name: tracking_id
+        description: ""
+
+      - name: shipping_service
+        description: ""
+
+      - name: estimated_delivery_at
+        description: ""
+
+      - name: delivered_at
+        description: ""
+
+      - name: order_status
+        description: ""
+
+      - name: promo_id
+        description: ""
+
+      - name: discount
+        description: ""
