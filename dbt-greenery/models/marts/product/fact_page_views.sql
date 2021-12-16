@@ -1,6 +1,6 @@
 SELECT
     event_id,
-    created_at,
+    event_created_at,
     session_id,
     user_id,
     page_url

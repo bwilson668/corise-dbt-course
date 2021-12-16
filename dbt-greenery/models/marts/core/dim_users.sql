@@ -4,7 +4,7 @@ SELECT
     last_name,
     email,
     phone_number,
-    created_at,
+    user_created_at,
     address,
     zipcode,
     state,

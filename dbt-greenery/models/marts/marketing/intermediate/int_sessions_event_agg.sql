@@ -1,6 +1,6 @@
 SELECT
     session_id,
-    created_at,
+    event_created_at,
     user_id,
     SUM(
         CASE

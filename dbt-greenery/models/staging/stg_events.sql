@@ -14,7 +14,7 @@ renamed AS (
         session_id,
         user_id,
         page_url,
-        created_at,
+        created_at AS event_created_at,
         event_type
     FROM
         source
